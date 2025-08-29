@@ -1,3 +1,20 @@
+  // Form validation
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+
 // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
@@ -149,3 +166,5 @@
         navbar.classList.remove('navbar-scrolled', 'shadow-sm');
       }
     });
+
+
